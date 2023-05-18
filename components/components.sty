@@ -48,7 +48,8 @@
 %\fancyfoot{}
 %\usepackage{tabularx}
 
-\newcommand{\getHeading}[5]{
+% --- Not used ---
+\newcommand{\getHeadingSBS}[5]{
   \noindent
   \begin{minipage}{0.5\textwidth}
     \Huge #1
@@ -66,6 +67,14 @@
   \hrule\vspace{.5cm}
 }
 
+\newcommand{\getHeading}[5]{
+  \noindent
+  \begin{minipage}{0.5\textwidth}
+    \Huge #1
+  \end{minipage}\vspace{-1.7cm}
+}
+
+% --- Not used ---
 \newcommand{\setTargetRoleHeading}[4]{
   {\noindent\vspace{.1in}\large\bfseries #1 \\}
   #2  #3  #4
