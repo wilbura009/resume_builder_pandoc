@@ -19,49 +19,67 @@
 
 % --- Name/Contact Info ---
 $for(personal)$
-  \getHeading{$personal.name$}
-    {$personal.phone$}
-    {$personal.email$}
-    {\href{$personal.website$}{$personal.prettyurl$}}
-    {$personal.address$}
+    \noindent
+    \begin{centering} \Huge{$personal.name$} \\
+    \end{centering}
+
+    \vspace{.1cm}
+
+    \begin{centering}
+      \small
+        {$personal.address$} |
+        {$personal.phone$}   |
+        {$personal.email$}   |
+        {\href{$personal.website$}{$personal.prettyurl$}} \\
+    \end{centering}
 $endfor$
+
+
+\vspace{-.5cm}
 
 % --- Summary --- 
-$for(targetRole)$
-  \setTargetRoleHeading{$targetRole.title$}{$targetRole.description$}
+\section*{Objective}
+$for(objective)$
+  {$objective.description$}
 $endfor$
-
-\vspace{-.3cm}
-
-% --- Technical Skills ---
-\section*{Technical Skills}
-\begin{tabular}[t]{ @{}p{\textwidth} } %@{} - no indent in first column
-  $for(skills/pairs)$ % Row
-    \begin{minipage}[t]{.35\textwidth}
-      \begin{itemize}[itemsep=-3pt,leftmargin=*]
-        $for(it.value)$ % Column
-          \item{$it$}
-        $endfor$
-      \end{itemize}
-    \end{minipage}
-  $endfor$
-\end{tabular}
 
 \vspace{-.3cm} %----- 
 
-% --- Related Course Work ---
-\section*{Related Course Work}
-\begin{tabular}[t]{ @{}p{\textwidth} } %@{} - no indent in first column
-  $for(relatedCourseWork/pairs)$
-    \begin{minipage}[t]{.35\textwidth}
-      \begin{itemize}[itemsep=-3pt,leftmargin=*]
-        $for(it.value)$ % Column
-          \item{$it$}
-        $endfor$
-      \end{itemize}
-    \end{minipage}
+% --- Education ---
+\section*{Education}
+  \resumeSubHeadingListStart
+    $for(education)$
+      \resumeSubheading
+        {$education.institute$}{$education.city$}
+        {$education.subject$}{$education.year$} 
+    $endfor$
+  \resumeSubHeadingListEnd
+
+\vspace{-.3cm} %----- 
+
+% --- Technical Skills ---
+\section*{Skills}
+  $for(skills)$ % Row
+      \textbf{Programming:} {$skills.programming$} \\
+      \textbf{Platforms:} {$skills.platforms$} \\
+      \textbf{Tools:} {$skills.tools$} \\
+      \textbf{Communication:} {$skills.communication$} \\
+      \textbf{Languages:} {$skills.languages$} \\
+      \textbf{Additional:} {$skills.additional$}
   $endfor$
-\end{tabular}
+
+\vspace{-.3cm} %----- 
+
+% --- Experience ---
+\section*{Experience}
+  \resumeSubHeadingListStart
+    $for(experience)$
+      \resumeSubheadingExperience
+        {$experience.employer$}{$experience.city$}
+        {$experience.position$}{$experience.year$} 
+        {$experience.description$}
+    $endfor$
+  \resumeSubHeadingListEnd
 
 \vspace{-.3cm} %----- 
 
@@ -86,28 +104,19 @@ $endfor$
   
 \vspace{-.3cm} %----- 
 
-% --- Education ---
-\section*{Education}
-  \resumeSubHeadingListStart
-    $for(education)$
-      \resumeSubheading
-        {$education.institute$}{$education.city$}
-        {$education.subject$}{$education.year$} 
-    $endfor$
-  \resumeSubHeadingListEnd
-
-\vspace{-.3cm} %----- 
-
-% --- Experience ---
-\section*{Experience}
-  \resumeSubHeadingListStart
-    $for(experience)$
-      \resumeSubheadingExperience
-        {$experience.employer$}{$experience.city$}
-        {$experience.position$}{$experience.year$} 
-        {$experience.description$}
-    $endfor$
-  \resumeSubHeadingListEnd
+% --- Relevant Coursework ---
+\section*{Relevant Coursework}
+\begin{tabular}[t]{ @{}p{\textwidth} } %@{} - no indent in first column
+  $for(relatedCourseWork/pairs)$
+    \begin{minipage}[t]{.35\textwidth}
+      \begin{itemize}[itemsep=-3pt,leftmargin=*]
+        $for(it.value)$ % Column
+          \item{$it$}
+        $endfor$
+      \end{itemize}
+    \end{minipage}
+  $endfor$
+\end{tabular}
 
 
 \end{document}
