@@ -1,34 +1,33 @@
 \ProvidesPackage{components/components}
 
-% WebLinks
 \usepackage{hyperref}
-\hypersetup{
+\newcommand{\setHyperRefLinks}{
+  \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=cyan,
-    pdftitle={William Burroughs},
     %pdfpagemode=FullScreen,
+  }
 }
 
-% TODO: make setter
-\usepackage[margin=.5in]{geometry}
+\newcommand{\setHyperRefPDF}[4]{
+  \hypersetup{
+    pdftitle={#1},
+    pdfauthor={#2},
+    pdfsubject={#3},
+    pdfkeywords={#4},
+  }
+}
+
 \newcommand{\setFont}[1]{
   \usepackage{fontspec}
   \setmainfont{#1}
 }
 
-\newcommand{\setDocumentClass}[2]{
-  % \documentclass[ ⟨options⟩ ]{ ⟨class⟩ }
-  \documentclass[#1]{#2}
+\newcommand{\setMargin}[1]{
+  \usepackage[margin=#1]{geometry}
 }
-
-%lang: en-GB
-%geometry: margin=.5in
-%papersize: a4
-%# Font Style
-%mainfont: Lato
-%fontsize: 10pt
 
 % TODO: Test and remove these individually 
 \usepackage{latexsym}
@@ -41,6 +40,7 @@
 \usepackage{titlesec}
 \usepackage{color}
 
+% --- Not used ---
 %\usepackage[empty]{fullpage}
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
@@ -48,36 +48,11 @@
 %\fancyfoot{}
 %\usepackage{tabularx}
 
-% --- Not used ---
-\newcommand{\getHeadingSBS}[5]{
-  \noindent
-  \begin{minipage}{0.5\textwidth}
-    \Huge #1
-  \end{minipage}\vspace{-1.7cm}
-  \begin{flushright}
-    \begin{minipage}{0.25\textwidth}
-      \begin{tabular}{@{}r r r r}
-        \footnotesize Phone: & \footnotesize #2 \\
-        \footnotesize Email: & \footnotesize #3 \\
-        \footnotesize Website: & \footnotesize #4 \\
-        \footnotesize Location: & \footnotesize #5 \\
-      \end{tabular}
-    \end{minipage}\vspace{-.2cm}
-  \end{flushright}
-  \hrule\vspace{.5cm}
-}
-
 \newcommand{\getHeading}[5]{
   \noindent
   \begin{minipage}{0.5\textwidth}
     \Huge #1
   \end{minipage}\vspace{-1.7cm}
-}
-
-% --- Not used ---
-\newcommand{\setTargetRoleHeading}[4]{
-  {\noindent\vspace{.1in}\large\bfseries #1 \\}
-  #2  #3  #4
 }
 
 % \titleformat{〈command 〉}[〈shape〉]{〈format〉}{〈label 〉}{〈sep〉}{〈before-code〉}[〈after-code〉]
@@ -146,7 +121,7 @@
     \end{tabular*}\vspace{-5pt}
 }
 
-% --- OBSELETE ---
+% --- Not Used ---
 \newcommand{\makeSkillColumn}[5]{
   \begin{tabular}[t]{ @{}p{\textwidth} }  %@{} - no indent in first column
       \vspace{-1cm}
@@ -160,7 +135,7 @@
   \end{tabular}
 }
  
-% --- OBSELETE ---
+% --- Not Used ---
 \newcommand{\makeSkillSection}[3]{
   \vspace{1cm}
   \begin{tabular}{ @{}lll } %@{} - no indent in first column
@@ -177,4 +152,27 @@
   \vspace{-1cm}
 }
 
+% --- Not used ---
+\newcommand{\getHeadingSBS}[5]{
+  \noindent
+  \begin{minipage}{0.5\textwidth}
+    \Huge #1
+  \end{minipage}\vspace{-1.7cm}
+  \begin{flushright}
+    \begin{minipage}{0.25\textwidth}
+      \begin{tabular}{@{}r r r r}
+        \footnotesize Phone: & \footnotesize #2 \\
+        \footnotesize Email: & \footnotesize #3 \\
+        \footnotesize Website: & \footnotesize #4 \\
+        \footnotesize Location: & \footnotesize #5 \\
+      \end{tabular}
+    \end{minipage}\vspace{-.2cm}
+  \end{flushright}
+  \hrule\vspace{.5cm}
+}
 
+% --- Not used ---
+\newcommand{\setTargetRoleHeading}[4]{
+  {\noindent\vspace{.1in}\large\bfseries #1 \\}
+  #2  #3  #4
+}

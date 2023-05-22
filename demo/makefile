@@ -5,7 +5,10 @@ PDF_ENGINE = --pdf-engine=xelatex
 TEMPLATE = --template=template.tex
 INCLUDES = --include-in-header=components/components.sty
 
-template.pdf : clean $(META)
+DATE = $(shell date +%m%d%Y)
+OUT_PDF = $(DATE)_resume.pdf
+
+$(OUT_PDF) : clean $(META)
 	$(PD) $(PDF_ENGINE) $(INCLUDES) $(TEMPLATE) $(META) -o $@
 
 .PHONY: clean

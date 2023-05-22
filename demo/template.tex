@@ -1,8 +1,8 @@
+% https://en.wikibooks.org/wiki/LaTeX/Document_Structure#Document_classes
 % \documentclass[ ⟨options⟩ ]{ ⟨class⟩ }
+\documentclass[$documentclass.fontsize$, $documentclass.papersize$]{$documentclass.class$}
 
-\documentclass[10pt, a4paper]{article}
-
-% ---------- IMPORTS  ----------
+% ---------- INCLUDES  ----------
 % My Styling
 \usepackage{components/components}
 % Testing
@@ -12,7 +12,10 @@
 
 % ---------- SET STYLES ----------
 \setTitleFormat
-\setFont{$mainfont$}
+\setFont{$fontspec.mainfont$}
+\setMargin{$geometry.margin$}
+\setHyperRefLinks
+\setHyperRefPDF{$hypersetup.pdftitle$}{$hypersetup.pdfauthor$}{$hypersetup.pdfsubject$}{$hypersetup.pdfkeywords$}
 
 % ---------- DOCUMENT BEGINS ----------
 \begin{document}
@@ -30,20 +33,20 @@ $for(personal)$
         {$personal.address$} |
         {$personal.phone$}   |
         {$personal.email$}   |
+        {$personal.citizenStatus$} |
         {\href{$personal.website$}{$personal.prettyurl$}} \\
     \end{centering}
 $endfor$
 
+\vspace{-.5cm} %-----
 
-\vspace{-.5cm}
-
-% --- Summary --- 
+% --- Objective ---
 \section*{Objective}
 $for(objective)$
   {$objective.description$}
 $endfor$
 
-\vspace{-.3cm} %----- 
+\vspace{-.5cm} %-----
 
 % --- Education ---
 \section*{Education}
@@ -51,11 +54,11 @@ $endfor$
     $for(education)$
       \resumeSubheading
         {$education.institute$}{$education.city$}
-        {$education.subject$}{$education.year$} 
+        {$education.subject$}{$education.year$}
     $endfor$
   \resumeSubHeadingListEnd
 
-\vspace{-.3cm} %----- 
+\vspace{-.5cm} %-----
 
 % --- Technical Skills ---
 \section*{Skills}
@@ -68,7 +71,7 @@ $endfor$
       \textbf{Additional:} {$skills.additional$}
   $endfor$
 
-\vspace{-.3cm} %----- 
+\vspace{-.5cm} %-----
 
 % --- Experience ---
 \section*{Experience}
@@ -76,12 +79,12 @@ $endfor$
     $for(experience)$
       \resumeSubheadingExperience
         {$experience.employer$}{$experience.city$}
-        {$experience.position$}{$experience.year$} 
+        {$experience.position$}{$experience.year$}
         {$experience.description$}
     $endfor$
   \resumeSubHeadingListEnd
 
-\vspace{-.3cm} %----- 
+\vspace{-.5cm} %-----
 
 % --- Projects ---
 \section*{Projects}
@@ -101,8 +104,8 @@ $endfor$
         $endif$
       $endfor$
   \resumeSubHeadingListEnd
-  
-\vspace{-.3cm} %----- 
+
+\vspace{-.5cm} %-----
 
 % --- Relevant Coursework ---
 \section*{Relevant Coursework}

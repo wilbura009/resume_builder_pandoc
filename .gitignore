@@ -1,2 +1,2 @@
-yaml
-*.pdf
+src/yaml
+src/*.pdf
