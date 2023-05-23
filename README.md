@@ -3,7 +3,8 @@
 ## Description
 Build resumes using [pandoc](https://pandoc.org/).
 
-[TStark](samples/05222023_resume.png)
+<img src="samples//05222023_resume.png" alt="TStark" width="50%"/>
+
 
 ## Requirements
 - [pandoc](https://pandoc.org/)
@@ -54,7 +55,6 @@ if [ -e *.pdf ]; then rm *.pdf; fi
 pandoc --pdf-engine=xelatex --include-in-header=components/components.sty --template=template.tex yaml/meta.yaml -o 05222023_resume.pdf
 [WARNING] Could not deduce format from file extension .yaml
   Defaulting to markdown
-wb:bestCo$
 wb:bestCo$ l
 05222023_resume.pdf  components/  makefile  template.tex  yaml/
 ```
