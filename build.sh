@@ -17,8 +17,8 @@ case "$1" in
     read -rp "Enter the name of the new resume project folder: " new_resume_dir
     mkdir "$new_resume_dir" || exit 1
     mkdir "$new_resume_dir/yaml" || exit 1
-    cp -rv src/components src/makefile src/template.tex "$new_resume_dir"
-    cp -rv src/demo/yaml/meta.yaml "$new_resume_dir/yaml"
+    cp -r src/components src/makefile src/template.tex "$new_resume_dir"
+    cp -r src/demo/yaml/meta.yaml "$new_resume_dir/yaml"
     ;;
 
   -d|--demo)
@@ -31,8 +31,8 @@ case "$1" in
       mkdir demo/yaml || exit 1
     fi
     # Copy the files to the demo folder
-    cp -rv src/components src/makefile src/template.tex demo
-    cp -rv src/demo/yaml/meta.yaml demo/yaml
+    cp -r src/components src/makefile src/template.tex demo
+    cp -r src/demo/yaml/meta.yaml demo/yaml
     # Build the demo folder
     cd ./demo && make
     ;;
