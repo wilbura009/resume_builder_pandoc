@@ -20,7 +20,7 @@ hypersetup:
 
 # --- Personal ---
 personal:
-- name: 'Tony Stark'
+  name: 'Tony Stark'
   address: '10880 Malibu Point, Malibu, California 90265'
   phone: '(212) 970-4133'
   email: 'tony.stark@email.com'
@@ -65,11 +65,19 @@ projects:
     githubLink: https://github.com/wilbura009/resume_builder_pandoc
     presentationLink: https://revealjs.com/
     description: An example with a presentation link.
+    contribution:
+    - Created a LaTeX resume template using .yaml front matter and pandoc to generate PDFs.
+    - The template was used to create professional-looking resumes that were easy to read and scan.
+    - The template resulted in a significant reduction in the time it took to create resumes. :)
 
   - name: Resume Builder Pandoc
     githubLink: https://github.com/wilbura009/resume_builder_pandoc
     presentationLink:
     description: An example with no presentation link.
+    contribution:
+    - Created a LaTeX resume template using .yaml front matter and pandoc to generate PDFs.
+    - The template was used to create professional-looking resumes that were easy to read and scan.
+    - The template resulted in a significant reduction in the time it took to create resumes. :)
 
 # --- Education ---
 education:

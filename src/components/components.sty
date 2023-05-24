@@ -48,75 +48,46 @@
 %\fancyfoot{}
 %\usepackage{tabularx}
 
-\newcommand{\getHeading}[5]{
-  \noindent
-  \begin{minipage}{0.5\textwidth}
-    \Huge #1
-  \end{minipage}\vspace{-1.7cm}
-}
-
 % \titleformat{〈command 〉}[〈shape〉]{〈format〉}{〈label 〉}{〈sep〉}{〈before-code〉}[〈after-code〉]
 \newcommand{\setTitleFormat}{
-    \titleformat{\section}
-    { \vspace{.1in}\large\bfseries} % format
-    { \thesection }   % label
-    { .5em }          % sep
-    {}                % before-code
-    [\color{black}\titlerule] % after-code
+  \titleformat{\section}
+  { \vspace{.1in}\large\bfseries} % format
+  { \thesection }   % label
+  { .5em }          % sep
+  {}                % before-code
+  [\color{black}\titlerule] % after-code
 }
 
 \newcommand{\makeProjectRowPres}[4]{
-    \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} ( \textit{\small#2} | \textit{\small#3} )\\
-        \makeProjectDescription{#4}
-    \end{tabular*}\vspace{-5pt}
+  \vspace{-1pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    % projectName (githubLink | presentationLink)
+    \textbf{#1} ( \textit{\small#2} | \textit{\small#3} ) \\
+    % projectDescription
+    \textit{\small#4} \\
+  \end{tabular*}\vspace{-5pt}
 }
 
 \newcommand{\makeProjectRowNoPres}[3]{
-    \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} ( \textit{\small#2} )\\
-        \makeProjectDescription{#3}
-    \end{tabular*}\vspace{-5pt}
+  \vspace{-1pt}\item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    % projectName (githubLink)
+    \textbf{#1} ( \textit{\small#2} ) \\
+    % projectDescription
+    \textit{\small#3} \\
+  \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\makeProjectDescription}[1]{
-    \textit{Description: \small#1} 
-}
+\newcommand{\subHeadingBulletListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\subHeadingBulletListEnd}{\end{itemize}}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\bulletListStart}{\begin{itemize}}
+\newcommand{\bulletListEnd}{\end{itemize}\vspace{-5pt}}
 
-\newcommand{\resumeItem}[2]{
-\item\small{
-        \textbf{#1}{: #2 \vspace{-2pt}}
-    }
-}
-
-\newcommand{\resumeSubheadingExperience}[5]{
+\newcommand{\subHeadingBulletListText}[4]{
 \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & #2 \\
-        \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-    \begin{itemize}
-        \item #5
-    \end{itemize}\vspace{-5pt}
-}
-
-\newcommand{\resumeSubheading}[4]{
-\vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & #2 \\
-        \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
-\newcommand{\resumeSubSubheading}[2]{
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-        \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-5pt}
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small#3} & \textit{\small #4} \\
+  \end{tabular*}\vspace{-5pt}
 }

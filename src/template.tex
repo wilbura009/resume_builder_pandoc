@@ -50,13 +50,13 @@ $endfor$
 
 % --- Education ---
 \section*{Education}
-  \resumeSubHeadingListStart
+  \subHeadingBulletListStart
     $for(education)$
-      \resumeSubheading
+      \subHeadingBulletListText
         {$education.institute$}{$education.city$}
         {$education.subject$}{$education.year$}
     $endfor$
-  \resumeSubHeadingListEnd
+  \subHeadingBulletListEnd
 
 \vspace{-.5cm} %-----
 
@@ -75,35 +75,47 @@ $endfor$
 
 % --- Experience ---
 \section*{Experience}
-  \resumeSubHeadingListStart
+  \subHeadingBulletListStart
     $for(experience)$
-      \resumeSubheadingExperience
+      \subHeadingBulletListText
         {$experience.employer$}{$experience.city$}
         {$experience.position$}{$experience.year$}
-        {$experience.description$}
+        \bulletListStart
+          \item{$experience.description$}
+        \bulletListEnd
     $endfor$
-  \resumeSubHeadingListEnd
+  \subHeadingBulletListEnd
 
 \vspace{-.5cm} %-----
 
 % --- Projects ---
 \section*{Projects}
-  \resumeSubHeadingListStart
+  \subHeadingBulletListStart
       $for(projects)$
         $if(projects.presentationLink)$ % if section used on no empty value
-        \makeProjectRowPres
-          {$projects.name$}
-            {\href{$projects.githubLink$}{Github}}
-            {\href{$projects.presentationLink$}{Presentation}}
-          {$projects.description$}
+          \makeProjectRowPres
+            {$projects.name$}
+              {\href{$projects.githubLink$}{Github}}
+              {\href{$projects.presentationLink$}{Presentation}}
+            {$projects.description$}
+            \bulletListStart
+              $for(projects.contribution/pairs)$
+                \item{$it.value$}\vspace{-.2cm}
+              $endfor$
+            \bulletListEnd
         $else$
-        \makeProjectRowNoPres
-          {$projects.name$}
-            {\href{$projects.githubLink$}{Github}}
-          {$projects.description$}
+          \makeProjectRowNoPres
+            {$projects.name$}
+              {\href{$projects.githubLink$}{Github}}
+            {$projects.description$}
+            \bulletListStart
+              $for(projects.contribution/pairs)$
+                \item{$it.value$}\vspace{-.2cm}
+              $endfor$
+            \bulletListEnd
         $endif$
       $endfor$
-  \resumeSubHeadingListEnd
+  \subHeadingBulletListEnd
 
 \vspace{-.5cm} %-----
 
