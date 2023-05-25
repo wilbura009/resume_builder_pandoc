@@ -1,3 +1,4 @@
 src/yaml
-src/*.pdf
+src/output/*.pdf
+src/coverletter_template.tex
 demo

@@ -50,13 +50,15 @@ Once you've ran `build.sh -n` the first time you can get rid you the other files
 wb:resume_builder_pandoc$ ./build.sh -n
 Enter the name of the new resume project folder: bestCo
 wb:resume_builder_pandoc$ cd bestCo/
-wb:bestCo$ make
-if [ -e *.pdf ]; then rm *.pdf; fi
-pandoc --pdf-engine=xelatex --include-in-header=components/components.sty --template=template.tex yaml/meta.yaml -o 05222023_resume.pdf
+wb:bestCo$ make resume
+mkdir -p output
+pandoc --pdf-engine=xelatex --include-in-header=components/components.sty --template=resume_template.tex yaml/resume.yaml -o output/05252023_resume.pdf
 [WARNING] Could not deduce format from file extension .yaml
   Defaulting to markdown
-wb:bestCo$ l
-05222023_resume.pdf  components/  makefile  template.tex  yaml/
+wb:bestCo$ ls
+components  makefile  output  resume_template.tex  yaml
+wb:bestCo$ ls output/
+05252023_resume.pdf
 ```
 
 ## Additional Info
